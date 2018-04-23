@@ -22,7 +22,6 @@
     "body-parser": "^1.18.2",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
-    "mongoose": "^5.0.14",
     "node-fetch": "^2.1.2",
     "node-sass": "^4.8.3",
     "nodemon": "^1.17.3",

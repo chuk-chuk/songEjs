@@ -20,14 +20,10 @@
             <li><a class="active" href="#home">Home</a></li>
             <li><a href="#news">About</a></li>
             <li><a href="#contact">Contact</a></li>
-            <input type="text" placeholder="Search by artist name...">
-          </ul>
-        </div>
-        <div classname="list-of-songs">
-          <ul>
-            <% records.forEach((record) => { %>
-                <li><%= record.title %> - <%= record.chords %></li>
-            <% }); %>
+            <form action="/songs" method="get">
+              <input type="text" name="pattern" placeholder="Enter an artist name...">
+              <input type="submit" value="Search">
+            </form>
           </ul>
         </div>
     </main>
