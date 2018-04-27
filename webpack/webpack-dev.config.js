@@ -1,8 +1,11 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: "./src/app.js",
+  // context: path.resolve(__dirname, "/../src"),
+  entry: './src/app.js',
   output: {
       filename: 'bundle.js'
   },
@@ -14,10 +17,11 @@ module.exports = {
     tls: 'empty'
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('development')
-      }
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({
+            "process.env": {
+                "NODE_ENV": JSON.stringify('development')
+        }
     }),
   ],
   module: {
@@ -48,6 +52,11 @@ module.exports = {
           'file-loader'
         ]
       },{
+        test: /\.ejs$/,
+        use: [
+          'ejs-compiled-loader'
+        ]
+      },{
         test: /\.scss$/,
         exclude: /node_modules/,
         use: [{
@@ -61,6 +70,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: ["*", ".js", ".jsx", ".ejs"]
   }
 }
